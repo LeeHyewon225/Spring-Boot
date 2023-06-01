@@ -8,9 +8,9 @@ import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 
+import static org.hamcrest.Matchers.is;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
 /*
 @SpringBootTest : Application context 전부 로딩
@@ -30,5 +30,19 @@ public class HelloControllerTest {
 
         //MockMvc를 통해 /hello 주소로 HTTP GET 요청
         mvc.perform(get("/hello")).andExpect(status().isOk()).andExpect(content().string(hello));
+    }
+
+    @Test
+    public void hellodto가_리턴된다() throws Exception{
+        String name = "hello";
+        int amount = 1000;
+
+        mvc.perform(get("/hello/dto")
+                .param("name", name).param("amount", String.valueOf(amount))) // String 값만 허용
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.name", is(name)))
+                .andExpect(jsonPath("$.amount", is(amount)));
+                // json 응답값을 필드별로 검증. $을 기준으로 필드명 명시
+
     }
 }
