@@ -12,6 +12,7 @@ import javax.persistence.*;
 @Entity
 //JPA, JPA 를 사용하여 DB 테이블과 매핑할 클래스
 //절대 Setter 메소드를 만들지 않음 -> 명확히 그 목적과 의도를 나타낼 수 있는 메소드 추가
+//
 public class Posts {
 
     @Id //PK 필드
@@ -40,3 +41,17 @@ public class Posts {
         this.author = author;
     }
 }
+
+/*
+Domain Model
+@Entity 가 사용된 영역
+데이터베이스와 맟닿은 핵심 클래스
+Request/Response 클래스로 사용 X
+
+Dtos
+계층 간에 데이터 교환을 위한 객체
+View를 위한 클래스 -> 자주 변경
+
+-> View Layer 와 DB Layer의 역할 분리 중요
+Entity 클래스와 Controller 에서 사용할 Dto는 분리해서 사용해야함.
+ */
