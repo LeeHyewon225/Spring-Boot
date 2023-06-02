@@ -28,7 +28,8 @@ public class HelloControllerTest {
     public void hello가_리턴된다() throws Exception{
         String hello = "hello";
 
-        //MockMvc를 통해 /hello 주소로 HTTP GET 요청
+        //MockMvc 를 통해 /hello 주소로 HTTP GET 요청
+        //mvc 는 주소를 통해 연결된 후 반환되는 View 를 테스트하기 위해 사용 (!= assertThat)
         mvc.perform(get("/hello")).andExpect(status().isOk()).andExpect(content().string(hello));
     }
 

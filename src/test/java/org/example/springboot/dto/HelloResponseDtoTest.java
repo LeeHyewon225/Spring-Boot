@@ -16,6 +16,7 @@ public class HelloResponseDtoTest {
         HelloResponseDto dto = new HelloResponseDto(name, amount);
 
         // assertj 라는 테스트 검증 라이브러리의 검증 메소드. 검증하고 싶은 대상을 인자로 받음.
+        // 단순히 해당 메소트 안에서 선언된 객체를 테스트하기 위해 사용 (!= mvc)
         assertThat(dto.getName()).isEqualTo(name);
         assertThat(dto.getAmount()).isEqualTo(amount);
     }
