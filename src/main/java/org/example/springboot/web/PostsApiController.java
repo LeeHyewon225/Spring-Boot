@@ -24,8 +24,9 @@ public class PostsApiController {
         return postsService.update(id, requestDto);
     }
 
-    @GetMapping("/api/v1/posts/{id}")
+    @GetMapping("/api/v1/posts/{id}") // 반환 객체에 대한 정보를 보려면 해당 클래스에 @Getter 어노테이션 필수
     public PostsResponseDto findById(@PathVariable Long id){
         return postsService.findById(id);
     }
+
 }

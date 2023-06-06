@@ -95,6 +95,7 @@ public class PostsApiControllerTest {
         HttpEntity<PostsUpdateRequestDto> requestEntity = new HttpEntity<>(requestDto);
         ResponseEntity<Long> responseEntity = restTemplate.exchange(url, HttpMethod.PUT, requestEntity, Long.class);
                                                            //어떤 HTTP Method 사용 가능   해당 url로 보낼 객체
+                                                           //여기서는 Put 요청을 보내려고 exchange 메소드를 사용함
         assertThat(responseEntity.getStatusCode()).isEqualTo(HttpStatus.OK);
         assertThat(responseEntity.getBody()).isGreaterThan(0L);
 
