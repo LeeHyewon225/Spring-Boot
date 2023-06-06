@@ -3,6 +3,7 @@ package org.example.springboot.domain.posts;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import org.example.springboot.domain.BaseTimeEntity;
 
 import javax.persistence.*;
 
@@ -13,7 +14,7 @@ import javax.persistence.*;
 //JPA, JPA 를 사용하여 DB 테이블과 매핑할 클래스
 //절대 Setter 메소드를 만들지 않음 -> 명확히 그 목적과 의도를 나타낼 수 있는 메소드 추가
 //
-public class Posts {
+public class Posts extends BaseTimeEntity {
 
     @Id //PK 필드
     @GeneratedValue(strategy = GenerationType.IDENTITY) //auto increment
