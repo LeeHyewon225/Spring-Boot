@@ -20,7 +20,7 @@ public class PostsApiController {
 
     @PutMapping("/api/v1/posts/{id}")
     public Long update(@PathVariable Long id, @RequestBody PostsUpdateRequestDto requestDto){
-                       //PostMapping 주소의 {변수}와 동일한 이름을 갖는 파라미터 추가
+                       //PutMapping 주소의 {변수}와 동일한 이름을 갖는 파라미터 추가
         return postsService.update(id, requestDto);
     }
 

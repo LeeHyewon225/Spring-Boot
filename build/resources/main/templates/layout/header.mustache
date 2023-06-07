@@ -1,0 +1,21 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>스트링 부트 웹서비스</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+</head>
+<body>
+<!--
+페이지 로딩 속도를 높이기 위해 css는 header에 js는 footer에 둠
+HTML은 위에서부터 코드 실행. head -> body
+즉 head가 다 불러지지 않으면 백지 화면만 노출
+js의 용량이 클수록 body부분의 실행이 늦어지기 때문에 js는 body의 하단에 두어 화면이 다 그려진 뒤에 로춯
+반면 css는 화면을 그리는 역할이기에 head에서 불러옴
+
+bootstrap.js의 경우 제이쿼리가 꼭 있어야만 하기 때문에 제이쿼리가 더 먼저 호출되도록 함
+이를 bootstrap.js가 제이쿼리에 의존한다고 함
+
+라이브러리, 기타 HTML 태그들이 모두 레이아웃에 추가되어 index.mustache에는 필요한 코드만 남게 됨.
+-->
