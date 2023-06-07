@@ -9,14 +9,19 @@ var main = {
     init : function(){
         var _this = this;
 
-        //byn-save 란 id를 가진 HTML 엘리먼트에 click 이벤트 발생 시 save()를 실행하도록 이벤트 등록
+        //btn-save 란 id를 가진 HTML 엘리먼트에 click 이벤트 발생 시 save()를 실행하도록 이벤트 등록
         $('#btn-save').on('click', function(){
             _this.save();
         });
 
-        //byn-update 란 id를 가진 HTML 엘리먼트에 click 이벤트 발생 시 update()를 실행하도록 이벤트 등록
+        //btn-update 란 id를 가진 HTML 엘리먼트에 click 이벤트 발생 시 update()를 실행하도록 이벤트 등록
         $('#btn-update').on('click', function(){
             _this.update();
+        })
+
+        //btn-delete 란 id를 가진 HTML 엘리먼트에 click 이벤트 발생 시 delete()를 실행하도록 이벤트 등록
+        $('#btn-delete').on('click', function(){
+            _this.delete();
         })
     },
     save : function(){
@@ -68,6 +73,21 @@ var main = {
             alert('글이 수정되었습니다.');
             window.location.href = "/";
         }).fail(function(){
+            alert(JSON.stringify(error));
+        });
+    },
+    delete : function(){
+        var id = $('#id').val();
+
+        $.ajax({
+            type: 'DELETE',
+            url: '/api/v1/posts/' + id,
+            dataType: 'json',
+            contentType:'application/json; charset=utf-8',
+        }).done(function(){
+            alert('글이 삭제되었습니다.');
+            window.location.href='/';
+        }).fail(function(error){
             alert(JSON.stringify(error));
         });
     }
