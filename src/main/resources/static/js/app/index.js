@@ -4,6 +4,7 @@
 var main 란 객체를 만들어 해당 객체에서 필요한 모든 function 을 선언
 이렇게 하면 main 객체 안에서만 function 이 유효하기 때문에 다른 js와 겹칠 위험이 사라짐
 */
+
 var main = {
     init : function(){
         var _this = this;
@@ -32,4 +33,5 @@ var main = {
         });
     }
 };
+
 main.init();
