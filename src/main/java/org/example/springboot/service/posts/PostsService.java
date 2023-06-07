@@ -3,11 +3,15 @@ package org.example.springboot.service.posts;
 import lombok.RequiredArgsConstructor;
 import org.example.springboot.domain.posts.Posts;
 import org.example.springboot.domain.posts.PostsRepository;
+import org.example.springboot.web.dto.PostsListResponseDto;
 import org.example.springboot.web.dto.PostsResponseDto;
 import org.example.springboot.web.dto.PostsSaveRequestDto;
 import org.example.springboot.web.dto.PostsUpdateRequestDto;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.util.List;
+import java.util.stream.Collectors;
 
 
 @RequiredArgsConstructor //Bean 주입 받기 : @AutoWierd, setter, *생성자*
@@ -41,5 +45,18 @@ public class PostsService {
         Posts entity = postsRepository.findById(id)
                 .orElseThrow(()->new IllegalArgumentException("해당 게시글이 없습니다. id=" + id));
         return new PostsResponseDto(entity);
+    }
+
+    //트랜잭션 범위는 유지하되 조회기능만 남겨 조회 속도가 개선됨.
+    // 등록, 수정, 삭제 기능이 없는 서비스 메소드에서 사용하는 것을 추천
+    @Transactional(readOnly = true)
+    public List<PostsListResponseDto> findAllDesc(){
+        return postsRepository.findAllDesc().stream() //여기의 결과값은 필요없는 필드까지 포함 -> PostsListResponseDto 로 매핑
+                .map(PostsListResponseDto::new) // == .map(posts -> new PostsListResponseDto(posts))
+                .collect(Collectors.toList());
+                /*
+                postsRepository 의 결과로 넘어온 Posts 의 Stream 을 map 을 통해
+                PostListResponseDto 로 변환 -> List 로 변환
+                */
     }
 }
