@@ -9,7 +9,8 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 @RequiredArgsConstructor
 @EnableWebSecurity //Spring Security 활성화
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
-
+                                   //스프링 시큐리티 사용을 위한 기본적인 시큐리티 설정
+    
     private final CustomOAuth2UserService customOAuth2UserService;
 
     @Override
