@@ -7,22 +7,22 @@
     <div class="row">
         <div class="col-md-6">
             <a href="/posts/save" role="button" class="btn btn-primary">글 등록</a>
-            {{#userName}}
-                Logged in as: <span id="user">{{userName}}</span>
+            {{#loginUserName}}
+                Logged in as: <span id="user">{{loginUserName}}</span>
                 <a href="/logout" class="btn btn-info active" role="button">Logout</a>
                 <!--
                 스프링 시큐리티에서 기본적으로 제공하는 로그아웃 URL
                 즉 개발자가 별도로 이 URL에 해당하는 컨트롤러를 만들 필요 X
                 -->
-            {{/userName}}
-            {{^userName}} <!--해당 값이 존재하지 않는 경우-->
+            {{/loginUserName}}
+            {{^loginUserName}} <!--해당 값이 존재하지 않는 경우-->
                 <a href="/oauth2/authorization/google" class="btn btn-success active" role="button">Google Login</a>
                 <a href="/oauth2/authorization/naver" class="btn btn-secondary active" role="button">Naver Login</a>
                 <!--
                 스프링 시큐리티에서 기본적으로 제공하는 로그인 URL
                 즉 개발자가 별도로 이 URL에 해당하는 컨트롤러를 만들 필요 X
                 -->
-            {{/userName}}
+            {{/loginUserName}}
         </div>
     </div>
 

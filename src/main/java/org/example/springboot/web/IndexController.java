@@ -30,7 +30,7 @@ public class IndexController {
         //같은 코드가 계속해서 반복되는 것은 불필요 => 어노테이션을 활용하며 메소드 인자로 세션값을 바로 받을 수 있도록 변경
         
         if(user!=null)
-            model.addAttribute("userName2", user.getName());
+            model.addAttribute("loginUserName", user.getName());
         return "index"; //호출할 파일 경로 : src/main/resource/templates/index.mustache
     }
 
