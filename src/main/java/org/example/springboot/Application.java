@@ -2,6 +2,7 @@ package org.example.springboot;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.context.ApplicationPidFileWriter;
 import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
 
 //HelloController 에서 테스트 오류 발생. EnableJpaAuditing 를 사용하기 위해선 최소 하나의 Entity 츨래스가 필요하지만
@@ -13,6 +14,8 @@ import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
 @SpringBootApplication
 public class Application {
     public static void main(String[] args){ // 스프링부트는 main 메소드가 선선된 클래스를 기준으로 실행
-        SpringApplication.run(Application.class, args); // 내장 WAS 실행
+        SpringApplication application = new SpringApplication(Application.class);
+        application.addListeners(new ApplicationPidFileWriter());
+        application.run(args); // 내장 WAS 실행
     }
 }
