@@ -21,6 +21,6 @@ public class IndexControllerTest {
     public void 메인페이지_로딩(){                               //반환 타입
         String body = this.restTemplate.getForObject("/", String.class);
         //TestRestTemplate 을 통해 "/"로 호출했을 때 index.mustache 에 해당 문자열이 있는지 테스트
-        assertThat(body).contains("스프링 부트로 시작하는 웹 서비스");
+        assertThat(body).contains("스프링 부트로 시작하는 웹 서비스 Ver.3");
     }
 }
