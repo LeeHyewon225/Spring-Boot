@@ -13,6 +13,6 @@ import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
 @SpringBootApplication
 public class Application {
     public static void main(String[] args){ // 스프링부트는 main 메소드가 선선된 클래스를 기준으로 실행
-        SpringApplication.run(Application.class, args); // 내장 WAS 실행
+        SpringApplication.run(Application.class, args);  // 내장 WAS 실행
     }
 }
