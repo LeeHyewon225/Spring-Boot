@@ -9,6 +9,7 @@ PROJECT_NAME=Spring-Boot
 
 echo "> Build 파일 복사"
 echo "> cp $REPOSITORY/zip/*.jar $REPOSITORY/"
+
 cp $REPOSITORY/zip/*.jar $REPOSITORY/
 
 echo "> 새 애플리케이션 배포"
