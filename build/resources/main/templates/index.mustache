@@ -6,9 +6,12 @@
 <div class="col-md-12">
     <div class="row">
         <div class="col-md-6">
+
+            {{#loginUserName}}
+                Logged in as: <span id="user">{{loginUserName}}({{loginUserEmail}}) </span><br><br>
+            {{/loginUserName}}
             <a href="/posts/save" role="button" class="btn btn-primary">글 등록</a>
             {{#loginUserName}}
-                Logged in as: <span id="user">{{loginUserName}}</span>
                 <a href="/logout" class="btn btn-info active" role="button">Logout</a>
                 <!--
                 스프링 시큐리티에서 기본적으로 제공하는 로그아웃 URL
@@ -24,7 +27,7 @@
                 -->
             {{/loginUserName}}
         </div>
-    </div>
+    </div><br>
 
     <table class="table table-horizontal table-bordered">
         <thead class="thead-strong">

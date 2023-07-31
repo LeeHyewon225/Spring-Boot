@@ -29,8 +29,10 @@ public class IndexController {
         //index 메소드 외에 다른 컨트롤러와 메소드에서 세션 값이 필요하면 그 때마다 직접 세션에서 값을 가져와야함
         //같은 코드가 계속해서 반복되는 것은 불필요 => 어노테이션을 활용하며 메소드 인자로 세션값을 바로 받을 수 있도록 변경
         
-        if(user!=null)
+        if(user!=null) {
             model.addAttribute("loginUserName", user.getName());
+            model.addAttribute("loginUserEmail", user.getEmail());
+        }
         return "index"; //호출할 파일 경로 : src/main/resource/templates/index.mustache
     }
 
